@@ -12,31 +12,17 @@ CREATE TABLE user (
 CREATE TABLE proxy (
     id        INTEGER   PRIMARY KEY AUTOINCREMENT,
     author_id INTEGER   NOT NULL,
-    created   TIMESTAMP NOT NULL,
-    updated   TIMESTAMP NOT NULL
-                        DEFAULT CURRENT_TIMESTAMP,
-    ip        TEXT      NOT NULL
-                        UNIQUE,
-    port      TEXT      NOT NULL,
-    FOREIGN KEY (
-        author_id
-    )
-REFERENCES user (id));
-
-CREATE TABLE socks (
-    id        INTEGER   PRIMARY KEY AUTOINCREMENT,
-
-    updated   TIMESTAMP NOT NULL
-                        DEFAULT CURRENT_TIMESTAMP,
+    created   TIMESTAMP,
+    updated   TIMESTAMP,
     delay     TEXT,
     ip        TEXT      NOT NULL
                         UNIQUE,
     port      TEXT      NOT NULL,
-    author_id INTEGER   NOT NULL,
     FOREIGN KEY (
         author_id
     )
 REFERENCES user (id));
+
 
 
 
